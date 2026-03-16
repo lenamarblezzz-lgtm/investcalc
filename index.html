@@ -493,12 +493,31 @@ function applyScenario(monthly, start, from, to, rate, btn) {
   update();
 }
 
-['i-monthly','i-start','i-from','i-to'].forEach(id => {
+['i-monthly','i-start'].forEach(id => {
   document.getElementById(id).addEventListener('input', () => {
     document.querySelectorAll('.scenario-btn').forEach(b => b.classList.remove('active'));
     update();
   });
 });
+
+['i-from','i-to'].forEach(id => {
+  const el = document.getElementById(id);
+  el.addEventListener('change', () => {
+    document.querySelectorAll('.scenario-btn').forEach(b => b.classList.remove('active'));
+    update();
+  });
+  el.addEventListener('blur', () => {
+    document.querySelectorAll('.scenario-btn').forEach(b => b.classList.remove('active'));
+    update();
+  });
+  el.addEventListener('keydown', e => {
+    if (e.key === 'Enter') {
+      document.querySelectorAll('.scenario-btn').forEach(b => b.classList.remove('active'));
+      update();
+    }
+  });
+});
+
 document.getElementById('i-rate').addEventListener('input', () => {
   document.querySelectorAll('.scenario-btn').forEach(b => b.classList.remove('active'));
   update();
