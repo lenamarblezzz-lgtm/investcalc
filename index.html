@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Калькулятор сложного процента от Лены Марблз</title>
+<title>Калькулятор сложного процента — Лена Марблз · Женский капитал</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -17,7 +17,7 @@
     --border2: rgba(255,255,255,0.13);
     --text: #f0ede6;
     --text2: #9e9b94;
-    --text3: #5a5854;
+    --text3: #aaa69e;
     --accent: #e8b84b;
     --accent2: #c49030;
     --green: #3dba8a;
@@ -203,7 +203,7 @@
   .footer {
     border-top: 1px solid var(--border);
     padding-top: 1.5rem;
-    display: flex; justify-content: space-between; align-items: center; flex-wrap: gap;
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;
     gap: 12px;
   }
   .footer-brand { font-size: 13px; color: var(--text3); }
@@ -224,6 +224,45 @@
 
   .val-flash { animation: flash 0.35s ease; }
   @keyframes flash { 0% { opacity: 0.4; } 100% { opacity: 1; } }
+
+  .input-row input { min-width: 0; width: 100%; }
+  .quick-guide { padding: 1.25rem 1.5rem; background: var(--surface); border: 1px solid var(--border2); border-radius: 16px; margin-bottom: 2rem; }
+  .quick-guide h2, .rate-help h2 { font-size: 17px; font-weight: 500; margin-bottom: .5rem; }
+  .quick-guide p, .field-hint, .rate-help p { font-size: 13px; color: var(--text2); line-height: 1.7; }
+  .quick-guide ol { padding-left: 1.2rem; margin: .65rem 0; color: var(--text2); font-size: 14px; }
+  .quick-guide li + li { margin-top: .35rem; }
+  .field-hint { margin-top: 8px; }
+  .rate-help { margin-top: 1.2rem; padding-top: 1.2rem; border-top: 1px solid var(--border2); }
+  .rate-help p + p { margin-top: .65rem; }
+  .rate-help strong { color: var(--text); font-weight: 500; }
+  .rate-presets { display: flex; flex-wrap: wrap; gap: 8px; margin: 1rem 0; }
+  .rate-presets button { font: inherit; font-size: 13px; padding: 9px 13px; border: 1px solid var(--border2); border-radius: 8px; color: var(--text); background: var(--surface2); cursor: pointer; }
+  .rate-presets button[aria-pressed="true"] { color: var(--accent); border-color: var(--accent); }
+  .rate-help details { margin-top: 1rem; font-size: 13px; color: var(--text2); }
+  .rate-help summary { cursor: pointer; color: var(--accent); }
+  .rate-help a { color: var(--accent); }
+  .subscribe { border: 1px solid rgba(232,184,75,.35); border-radius: 16px; padding: 2rem; margin: 2.5rem 0 2rem; background: linear-gradient(135deg, rgba(232,184,75,.09), rgba(61,186,138,.04)); }
+  .subscribe .section-label { color: var(--accent); }
+  .subscribe h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.6rem,4vw,2.2rem); line-height: 1.25; margin-bottom: 1rem; }
+  .subscribe h2.point-a { color: #ffd45a; font-family: 'Playfair Display', Georgia, serif; font-size: clamp(2rem, 6vw, 3rem); font-weight: 700; margin: 1rem 0 1.25rem; }
+  .subscribe p { color: var(--text2); font-size: 15px; max-width: 610px; }
+  .capital-topics { margin: .85rem 0 0; padding-left: 1.2rem; color: var(--text2); font-size: 15px; line-height: 1.7; }
+  .subscribe .cta-emphasis { color: #ffd45a; font-weight: 700; }
+  .capital-topics strong { color: var(--text); font-weight: 700; }
+  .capital-topics li + li { margin-top: .5rem; }
+  .subscribe p + p { margin-top: .75rem; }
+  .subscribe-link { display: inline-block; margin-top: 1.4rem; padding: 12px 20px; border-radius: 9px; background: var(--accent); color: var(--bg); font-size: 15px; font-weight: 500; text-decoration: none; }
+  .subscribe-link:hover { background: #f4cd74; }
+  .subscribe small { display: block; margin-top: .65rem; color: var(--text2); }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+  input[type=range]:focus-visible { outline: 2px solid var(--accent); }
+  @media(max-width:500px) { .inputs-card, .subscribe { padding: 1.25rem; } .slider-header { gap: 12px; } .subscribe-link { display: block; text-align: center; } .milestones { overflow-x: auto; } }
+  @media(prefers-reduced-motion:reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
+  .rate-presets { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .rate-presets button { text-align: left; padding: 12px; }
+  .rate-presets button strong { display: block; font-size: 20px; color: inherit; margin-bottom: 5px; }
+  .rate-presets button span { display: block; font-size: 12px; line-height: 1.5; }
+  @media(max-width:500px) { .rate-presets { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
@@ -231,58 +270,82 @@
 
   <!-- HEADER -->
   <div class="header">
-    <div class="badge">Лена Марблз @sheishedonist · Self-Made Капитал</div>
+    <div class="badge">Лена Марблз · Женский капитал</div>
     <h1>Калькулятор<br><span>сложного процента</span></h1>
-    <p>Посмотри, как маленькие вложения превращаются в капитал. Время работает на тебя — главное начать как можно скорее.</p>
+    <p>Посмотри, как маленькие вложения превращаются в капитал. Время работает на тебя — главное начать.</p>
   </div>
+
+  <section class="quick-guide" aria-labelledby="guide-title">
+    <h2 id="guide-title">Как посчитать свой капитал</h2>
+    <ol>
+      <li>Укажи, сколько уже накоплено и сколько готова откладывать каждый месяц.</li>
+      <li>Выбери возраст, к которому хочешь сформировать капитал.</li>
+      <li>Задай доходность и сравни несколько вариантов — результат обновится автоматически.</li>
+    </ol>
+    <p>Можно начать с примера ниже, затем подставить свои цифры. Все суммы — в рублях. Имена и сценарии условные.</p>
+  </section>
 
   <!-- SCENARIOS -->
   <p class="section-label">Готовые сценарии</p>
   <div class="scenarios">
     <button class="scenario-btn active" onclick="applyScenario(3000,0,25,45,12,this)">☕ Аня — кофе в день</button>
     <button class="scenario-btn" onclick="applyScenario(10000,0,35,55,12,this)">📅 Катя — поздний старт</button>
-    <button class="scenario-btn" onclick="applyScenario(20000,0,30,50,10,this)">📈 Марина — солидный темп</button>
-    <button class="scenario-btn" onclick="applyScenario(5000,0,20,60,11,this)">⏰ Оля — начала рано</button>
+    <button class="scenario-btn" onclick="applyScenario(20000,0,30,50,12,this)">📈 Марина — солидный темп</button>
+    <button class="scenario-btn" onclick="applyScenario(5000,0,20,60,12,this)">⏰ Оля — начала рано</button>
   </div>
 
   <!-- INPUTS -->
   <div class="inputs-card">
     <div class="inputs-grid">
       <div class="field">
-        <label>Ежемесячный взнос</label>
+        <label for="i-monthly">Ежемесячный взнос</label>
         <div class="input-row">
-          <input type="number" id="i-monthly" value="3000" min="0" step="500">
+          <input type="number" id="i-monthly" aria-describedby="i-monthly-hint" value="3000" min="0" step="500">
           <span class="input-unit">₽/мес</span>
         </div>
+        <p class="field-hint" id="i-monthly-hint">Сумма, которую сможешь регулярно откладывать после обязательных расходов. Например, 3 000 ₽. Если пополнений не будет — укажи 0.</p>
       </div>
       <div class="field">
-        <label>Начальный капитал</label>
+        <label for="i-start">Начальный капитал</label>
         <div class="input-row">
-          <input type="number" id="i-start" value="0" min="0" step="5000">
+          <input type="number" id="i-start" aria-describedby="i-start-hint" value="0" min="0" step="5000">
           <span class="input-unit">₽</span>
         </div>
+        <p class="field-hint" id="i-start-hint">Деньги, которые уже готовы к вложению. Финансовую подушку и деньги на ближайшие траты сюда не включай. Начинаешь с нуля — оставь 0.</p>
       </div>
       <div class="field">
-        <label>Возраст сейчас</label>
+        <label for="i-from">Возраст сейчас</label>
         <div class="input-row">
-          <input type="number" id="i-from" value="25" min="16" max="70" step="1">
+          <input type="number" id="i-from" aria-describedby="i-from-hint" value="25" min="16" max="70" step="1">
           <span class="input-unit">лет</span>
         </div>
+        <p class="field-hint" id="i-from-hint">Твой полный возраст на сегодня.</p>
       </div>
       <div class="field">
-        <label>Целевой возраст</label>
+        <label for="i-to">Целевой возраст</label>
         <div class="input-row">
-          <input type="number" id="i-to" value="45" min="17" max="80" step="1">
+          <input type="number" id="i-to" aria-describedby="i-to-hint" value="45" min="17" max="80" step="1">
           <span class="input-unit">лет</span>
         </div>
+        <p class="field-hint" id="i-to-hint">К какому возрасту хочешь накопить капитал. Например, с 25 до 45 лет — это 20 лет накоплений.</p>
       </div>
     </div>
     <div class="slider-section">
       <div class="slider-header">
-        <label>Среднегодовая доходность</label>
+        <label for="i-rate">Среднегодовая доходность</label>
         <span class="rate-val" id="rate-disp">12%</span>
       </div>
-      <input type="range" min="1" max="25" step="1" id="i-rate" value="12">
+      <input type="range" min="0" max="25" step="1" id="i-rate" value="12" aria-describedby="rate-intro">
+      <div class="rate-help">
+        <h2>Какую доходность поставить?</h2>
+        <p id="rate-intro">Начни с 12% годовых и сравни три условных сценария.</p>
+        <div class="rate-presets" role="group" aria-label="Сравнить сценарии доходности">
+          <button type="button" data-rate="8" aria-pressed="false"><strong>8%</strong><span>Консервативные инструменты на долгий срок</span></button>
+          <button type="button" data-rate="12" aria-pressed="true"><strong>12%</strong><span>Сценарий для инструментов с низким риском на долгий срок</span></button>
+          <button type="button" data-rate="16" aria-pressed="false"><strong>16%</strong><span>При сохранении высокой доходности</span></button>
+        </div>
+        <p id="current-date-line">Расчёт <time id="current-date"></time> предполагает снижение ключевой ставки (14% на 22.09.2026); если сценарий изменится, доходность нужно пересмотреть.</p>
+      </div>
     </div>
   </div>
 
@@ -339,10 +402,27 @@
     </table>
   </div>
 
+  <section class="subscribe" aria-labelledby="subscribe-title">
+    <div class="section-label">Следующий шаг · твой финансовый капитал</div>
+    <p>Ты уже посмотрела, сколько можешь откладывать и какой капитал получится за выбранный срок при сегодняшних возможностях.</p>
+    <h2 id="subscribe-title" class="point-a">Это твоя точка А.</h2>
+    <p>Чтобы прийти в свою точку B <strong class="cta-emphasis">быстрее</strong> и с большим капиталом, можно использовать разные инструменты. Все эти инструменты я разбираю в своём канале:</p>
+    <ul class="capital-topics">
+      <li>Как увеличивать <strong>активный доход</strong> и зарабатывать больше за час своего времени.</li>
+      <li>Как регулярно <strong>накапливать</strong> деньги и придерживаться своего плана.</li>
+      <li>Как использовать <strong>инвестиционные инструменты</strong>.</li>
+      <li>Как получать <strong>пассивный</strong> денежный доход.</li>
+      <li>Как собирать <strong>портфель</strong> из разных источников дохода.</li>
+      <li>Как работать с <strong>установками</strong> о деньгах, которые влияют на заработок и накопления.</li>
+    </ul>
+    <a class="subscribe-link" href="https://t.me/neurocreativ" target="_blank" rel="noopener noreferrer">Подписаться на канал в Telegram →</a>
+    <small>Лена Марблз · медленно богато · женский капитал</small>
+  </section>
+
   <!-- FOOTER -->
   <div class="footer">
     <div class="footer-brand">
-      Сделано для <a href="https://t.me/neurocreativ" target="_blank">@neurocreativ</a> · Лена Марблз
+      <a href="https://t.me/neurocreativ" target="_blank" rel="noopener noreferrer">Лена Марблз · Женский капитал</a>
     </div>
     <div class="footer-disclaimer">
       Расчёт приблизительный. Доходность не гарантирована. Результат зависит от инструментов, налогов и рыночной ситуации.
@@ -354,6 +434,21 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
 <script>
 let chartInst = null;
+
+function updateCurrentDate() {
+  const now = new Date();
+  const dateElement = document.getElementById('current-date');
+  dateElement.textContent = new Intl.DateTimeFormat('ru-RU', {
+    day: 'numeric', month: 'long', year: 'numeric'
+  }).format(now);
+  dateElement.dateTime = [now.getFullYear(), String(now.getMonth() + 1).padStart(2, '0'), String(now.getDate()).padStart(2, '0')].join('-');
+  document.getElementById('current-date-line').hidden = false;
+}
+updateCurrentDate();
+setInterval(updateCurrentDate, 60000);
+document.addEventListener('visibilitychange', () => {
+  if (!document.hidden) updateCurrentDate();
+});
 
 function fmt(v) {
   if (v >= 1e6) return (v / 1e6).toFixed(1).replace('.', ',') + '\u00a0млн\u00a0₽';
@@ -372,13 +467,13 @@ function getInputs() {
     start: Math.max(0, parseFloat(document.getElementById('i-start').value) || 0),
     from: parseInt(document.getElementById('i-from').value) || 25,
     to: parseInt(document.getElementById('i-to').value) || 45,
-    rate: parseInt(document.getElementById('i-rate').value) || 12,
+    rate: Number(document.getElementById('i-rate').value),
   };
 }
 
 function compute({ monthly, start, from, to, rate }) {
   const years = Math.max(1, to - from);
-  const r = rate / 100 / 12;
+  const r = Math.pow(1 + rate / 100, 1 / 12) - 1;
   const labels = [], totals = [], invested = [];
   let val = start, totalInv = start;
   for (let y = 0; y <= years; y++) {
@@ -404,6 +499,7 @@ function update() {
   const inp = getInputs();
   if (inp.to <= inp.from) { inp.to = inp.from + 1; document.getElementById('i-to').value = inp.to; }
   document.getElementById('rate-disp').textContent = inp.rate + '%';
+  document.querySelectorAll('[data-rate]').forEach(b => b.setAttribute('aria-pressed', String(Number(b.dataset.rate) === inp.rate)));
 
   const { labels, totals, invested, years } = compute(inp);
   const totalFinal = totals[totals.length - 1];
@@ -414,7 +510,7 @@ function update() {
   document.getElementById('r-total').textContent = fmt(totalFinal);
   document.getElementById('r-years').textContent = 'за ' + years + ' ' + plural(years, 'год','года','лет');
   document.getElementById('r-invested').textContent = fmt(invFinal);
-  document.getElementById('r-monthly-total').textContent = inp.monthly > 0 ? inp.monthly.toLocaleString('ru') + ' ₽/мес × ' + years + ' лет' : 'только начальный капитал';
+  document.getElementById('r-monthly-total').textContent = inp.monthly > 0 ? inp.monthly.toLocaleString('ru') + ' ₽/мес × ' + years + ' ' + plural(years, 'год', 'года', 'лет') + (inp.start > 0 ? ' + ' + fmt(inp.start) + ' на старте' : '') : 'только начальный капитал';
   document.getElementById('r-profit').textContent = fmt(profit);
   document.getElementById('r-profit-pct').textContent = invFinal > 0 ? '+' + Math.round(profit / invFinal * 100) + '% сверх вложений' : '—';
 
@@ -435,12 +531,13 @@ function update() {
     const isLast = y === years;
     const tr = document.createElement('tr');
     if (isLast) tr.className = 'highlight-row';
-    const pct = invested[y] > 0 ? Math.round(totals[y] / invested[y] * 100) : 100;
-    tr.innerHTML = `<td>${inp.from + y} лет</td><td>${fmtShort(invested[y])} ₽</td><td class="total">${fmtShort(totals[y])} ₽</td><td>${pct}%</td>`;
+    const pct = invested[y] > 0 ? Math.round(totals[y] / invested[y] * 100) + '%' : '—';
+    tr.innerHTML = `<td>${inp.from + y} лет</td><td>${fmtShort(invested[y])} ₽</td><td class="total">${fmtShort(totals[y])} ₽</td><td>${pct}</td>`;
     tbody.appendChild(tr);
   });
 
   // CHART
+  if (typeof Chart === 'undefined') return;
   if (chartInst) chartInst.destroy();
   chartInst = new Chart(document.getElementById('main-chart'), {
     type: 'line',
@@ -523,6 +620,12 @@ document.getElementById('i-rate').addEventListener('input', () => {
   update();
 });
 
+document.querySelectorAll('[data-rate]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.getElementById('i-rate').value = btn.dataset.rate;
+    document.getElementById('i-rate').dispatchEvent(new Event('input'));
+  });
+});
 update();
 </script>
 </body>
